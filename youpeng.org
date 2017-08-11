@@ -4,11 +4,12 @@
 * Why
   It means "有朋自远方来，不亦乐乎？".
 
+* TODOLIST
 
-* DONE Move token to configure file
+** DONE Move token to configure file
 
-* TODO Vue.js frontend, show words according to selected type
+** TODO Vue.js frontend, show words according to selected type
 
-* TODO Timeline of specific chapter
+** TODO Timeline of specific chapter
 
-* TODO Graph of people with relations
+** TODO Graph of people with relations
