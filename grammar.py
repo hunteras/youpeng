@@ -21,22 +21,23 @@ class Grammar:
         return indices
 
     def yearmark(self):
-        tags = ['nr', 'm', 'q']
+        # tags = ['nr', 'm', 'q']
+        tags = ['m', 'q']
         indices = self.sentences(tags)
         indices = filter((lambda i: self.word[i+len(tags)-1] == '年'), indices)
         return list(map((lambda x: (x, self.word[x:x+len(tags)])), indices))
 
-    def markbetween(self, i, tag):
+    def markbetween(self, i, ltags, rtags):
         length = len(self.tag)
         left = i
         while (left > 0):
-            if (self.tag[left] == tag):
+            if (self.tag[left] in ltags):
                 break
             else:
                 left = left - 1
         right = i
         while (right < length):
-            if (self.tag[right] == tag):
+            if (self.tag[right] in rtags):
                 break
             else:
                 right = right + 1
@@ -47,7 +48,7 @@ class Grammar:
         ym = self.yearmark()
         for m in ym:
             (i, a) = m
-            (left, right) = self.markbetween(i, 'wj')
+            (left, right) = self.markbetween(i, ['wj', 'wyy', 'wyz'], ['wj'])
             print(''.join(self.word[left+1:right+1]))
             s.append((i, self.word[left+1:right+1]))
         return s
@@ -57,7 +58,7 @@ def main():
         print("Usage:%s [Param] [...]" % sys.argv[0])
         return
 
-    g = Grammar('data/kzsj.json')
+    g = Grammar(sys.argv[1])
     print(g.yearsentence())
 
 if __name__ == '__main__':
