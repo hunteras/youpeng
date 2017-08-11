@@ -23,7 +23,8 @@ def main():
     for tr in table:
         es = list(map((lambda x: x.get_text()), tr('td')))
         tags.append({'code':es[0].strip(), 'name':es[1].strip(), 'comment':es[2].strip()})
-    with open('data/tagtable.json', 'w') as w:
+    global path
+    with open(path, 'w') as w:
         w.write(dumps(tags, ensure_ascii=False))
 
 if __name__ == '__main__':
