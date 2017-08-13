@@ -5,9 +5,10 @@ from __future__ import print_function, unicode_literals
 from bosonnlp import BosonNLP
 
 class Timeline:
-    def __init__(self, contents):
-        self.contents = contents
+    def __init__(self, sentences):
+        self.sentences = sentences
 
+    
 def main():
     if len(sys.argv) == 1:
         print("Usage:%s [Param] [...]" % sys.argv[0])
@@ -15,4 +16,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
