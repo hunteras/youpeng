@@ -23,7 +23,12 @@ def sortcount(a):
     for e in s:
         c.append(a.count(e))
     return zip(list(s), c)
-    
+
+def loadjson(filename):
+    text = filecontent(filename)
+    from json import loads
+    return loads(text)
+
 def main():
     s = ['h', 'c', 'c']
     l = ['hello', 'color', 'cool']
